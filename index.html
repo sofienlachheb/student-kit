@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الرسالة الأكاديمية - الصفوف</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <title>حقيبة الطالب 2025-2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
     @media (max-width: 768px) {
   .logo-container {
@@ -18,18 +18,19 @@
 }
 
     body {
+      box-sizing: border-box; margin: 0; padding: 0;
       font-family: 'Tajawal', sans-serif;
       background: linear-gradient(135deg, #0E3A7A 0%, #3AA0FF 50%, #C0C7D1 100%);
-      margin: 0; padding: 40px;
-      min-height: 100vh; color: #fff; text-align: center;
+      min-height: 100%; height: 100%; overflow-x: hidden; position: relative;
     }
+    html { height: 100%; }
+    * { box-sizing: border-box; }
+    .container { width: 100%; max-width: 1920px; margin: 0 auto; padding: 40px; min-height: 100%; display: flex; flex-direction: column; }
+    .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.08; pointer-events: none; z-index: 0; }
     .header {
       display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; position: relative; z-index: 1;
       background: rgba(255, 255, 255, 0.95); padding: 10px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
-    .footer { text-align: center; padding: 30px; background: rgba(255, 255, 255, 0.95); border-radius: 20px; margin-top: 40px; position: relative; z-index: 1; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
-    .footer-text { font-size: 20px; font-weight: 600; color: #0E3A7A; margin: 0; }
-
     .logo-container { display: flex; align-items: center; gap: 30px; }
     .logo {
       width: 50px; height: 50px; background: #fff; border-radius: 50%;
@@ -38,31 +39,35 @@
     .title-section { flex: 1; text-align: center; padding: 0 40px; }
     .main-title { font-size: 30px; font-weight: 800; color:#6A1B2E; margin: 0 0 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
     .subtitle { font-size: 24px; font-weight: 500; color: #3AA0FF; margin: 0; }
-  
-    h1, h2 {
-      font-size: 32px; margin-bottom: 20px;
+    .main-content { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; padding: 40px 0; }
+    .button-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1200px; width: 100%; }
+    .button-item {
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+      text-decoration: none; cursor: pointer; transition: transform 0.3s ease; outline: none;
     }
-    .grade-group {
-      margin-bottom: 40px;
+    .button-item:hover { transform: translateY(-10px); }
+    .button-circle {
+      width: 100px; height: 100px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; position: relative; overflow: hidden;
     }
-    .grade-buttons {
-      display: flex; flex-direction: column;
-      gap: 15px; max-width: 300px; margin: 0 auto;
+    .button-circle::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%); border-radius: 50%;
     }
-    button {
-      background: #ffffff22; border: 2px solid #fff; padding: 15px;
-      font-size: 18px; border-radius: 10px; color: #fff; cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover { background: #ffffff44; }
-    table {
-      width: 90%; margin: 20px auto; border-collapse: collapse;
-      background: #fff; color: #000; border-radius: 10px;
-      overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    th, td { padding: 12px 16px; border: 1px solid #ccc; }
-    th { background-color: #2850E8; color: white; }
-    .hidden { display: none; }
+    .button-item:hover .button-circle { box-shadow: 0 15px 45px rgba(0,0,0,0.3); transform: scale(1.05); }
+    .button-label { font-size: 22px; font-weight: 700; color: #fff; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); max-width: 220px; }
+    .btn-1 { background: linear-gradient(135deg, #9DD6FF 0%, #7BC5FF 100%); }
+    .btn-2 { background: linear-gradient(135deg, #FFD1E3 0%, #FFB8D1 100%); }
+    .btn-3 { background: linear-gradient(135deg, #3C67FF 0%, #2850E8 100%); }
+    .btn-4 { background: linear-gradient(135deg, #C5B7FF 0%, #B09FFF 100%); }
+    .btn-5 { background: linear-gradient(135deg, #62E0B8 0%, #4ACFA3 100%); }
+    .btn-6 { background: linear-gradient(135deg, #FFC977 0%, #FFB85C 100%); }
+    .btn-7 { background: linear-gradient(135deg, #76E4EA 0%, #5DD4DB 100%); }
+    .btn-8 { background: linear-gradient(135deg, #CFD8E6 0%, #B8C4D6 100%); }
+    .btn-9 { background: linear-gradient(135deg, #4C63D2 0%, #3A4FBD 100%); }
+    .footer { text-align: center; padding: 30px; background: rgba(255, 255, 255, 0.95); border-radius: 20px; margin-top: 40px; position: relative; z-index: 1; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    .footer-text { font-size: 20px; font-weight: 600; color: #0E3A7A; margin: 0; }
     @media (max-width: 1400px) { .button-grid { gap: 40px; } }
     @media (max-width: 1024px) {
       .main-title { font-size: 28px; }
@@ -81,159 +86,83 @@
   </style>
 </head>
 <body>
-  <div class="cotainer">
-                <!-- Header -->
-            <div class="header">
-              <div class="logo-container">
-                <div class="logo">🏛️</div>
-                <div><img src="2.png"></div><div><img src="1.jpg"></div>
-                <div class="logo">🎓</div>
-                </div>     
-              <div class="title-section"> 
-                  <h1 class="main-title" id="mainTitle">حقيبة الطالب 2025-2026</h1>
-              </div>
-          </div>
-          <!-- الصف العاشر -->
-          <div class="grade-group">
-              
-            <div class="grade-buttons">
-              <button onclick="showTable('grade10')">📗الرسالة الأكادمية لمواد الصف العاشر</button>
-            </div>
-          </div>
-          <!-- الصف الحادي عشر -->
-          <div class="grade-group">
-            
-            <div class="grade-buttons">
-              <button onclick="showTable('grade11-A')">📗 الرسالة الأكادمية لمواد الصف حادي عشر أدبي</button>
-              <button onclick="showTable('grade11-B')">📗 الرسالة الأكادمية لمواد الصف حادي عشر علمي</button>
-              <button onclick="showTable('grade11-T')">📗 الرسالة الأكادمية لمواد الصف  حادي عشر تكنولوجي</button>
-            </div>
-          </div>
-          <!-- جدول الصف العاشر -->
-          <div id="grade10" class="hidden">
-            <h2>الرسالة الأكادمية لمواد  - الصف العاشر</h2>
-            <table>
-              <thead>
-                <tr><th colspan="4">المادة</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a href="1/10/الاحياء 10.pdf" target="_blank">الرياضيات</a></td>
-                  <td><a href="1/10/الرياضيات 10.pdf">الفيزياء</a></td>
-                  <td><a href="1/10/الكيمياء 10.pdf">الكيمياء</a></td>
-                  <td><a href="1/10/الاحياء 10.pdf">الأحياء</a></td>
-                </tr>
-                <tr>
-                  <td><a href="1/10/اللغة العربية 10.pdf">اللغة العربية</a></td>
-                  <td><a href="1/10/اللغة الانجليزية 10.pdf">اللغة الانجليزية</a></td>
-                  <td><a href="1/10/الدراسات الاجتماعية 10.pdf">الدراسات الإجتماعية</a></td>
-                  <td><a href="1/10/التربية الاسلامية 10.pdf">التربية الإسلامية</a></td>
-                </tr>
-                <tr>
-                  <td colspan="2" ><a href="1/10/الحوسبة 10.pdf">الحوسبة</a></td>
-                  <td colspan="2"><a href="1/10/المهارات 10.pdf">المهارات</a></td>
-                  
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- جدول الصف الحادي عشر أدبي -->
-          <div id="grade11-A" class="hidden">
-            <h2>الرسالة الأكادمية لمواد - الصف الحادي عشر أدبي</h2>
-            <table>
-              <thead>
-                <tr><th colspan="4">المادة</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a href="1/11-A/الرياضيات 11 ادبي.pdf"> الرياضيات العامة</a></td>
-                  <td><a href="1/11-A/التاريخ 11.pdf">التاريخ</a></td>
-                  <td><a href="1/11-A/الجغرافيا 11.pdf">الجغرافيا</a></td>
-                  <td><a href="1/11-A/التربية الاسلامية 11.pdf">التربية الإسلامية</a></td>
-                </tr>
-                <tr>
-                  <td><a href="1/11-A/اللغة العربية 11 ادبي.pdf">اللغة العربية</a></td>
-                  <td><a href="1/11-A/اللغة الانجليزية 11.pdf">اللغة الانجليزية</a></td>
-                  <td><a href="1/11-A/العلوم العامة 11 ادبي.pdf">العلوم العامة</a></td>
-                  <td colspan="2" ><a href="1/11-A/الحوسبة 11 ادبي.pdf">الحوسبة</a></td>
-                </tr>
-                <tr>
-                  <td colspan="2"><a href="1/11-A/المهارات 11.pdf">المهارات</a></td>
-                  
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- جدول الصف الحادي عشر علمي -->
-          <div id="grade11-B" class="hidden">
-                <h2>الرسالة الأكادمية لمواد- الصف الحادي عشر علمي</h2>
-            <table>
-              <thead>
-                <tr><th colspan="4">المادة</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a href="1/11-B/الرياضيات 11  علمي وتكنولوجي.pdf">الرياضيات</a></td>
-                  <td><a href="1/11-B/الفيزياء 11  علمي وتكنولوجي.pdf">الفيزياء</a></td>
-                  <td><a href="1/11-B/الكيمياء 11 علمي.pdf">الكيمياء</a></td>
-                  <td><a href="1/11-B/الاحياء 11.pdf">الأحياء</a></td>
-                </tr>
-                <tr>
-                  <td><a href="1/11-B/اللغة العربية 11 علمي.pdf">اللغة العربية</a></td>
-                  <td><a href="1/11-B/اللغة الانجليزية 11.pdf">اللغة الانجليزية</a></td>
-                  <td><a href="1/11-B/التربية الاسلامية 11.pdf">التربية الإسلامية</a></td>
-                  <td colspan="2" ><a href="1/11-B/الحوسبة 11 علمي.pdf">الحوسبة</a></td>
-                </tr>
-                <tr>
-                  
-                  <td colspan="2"><a href="1/11-B/المهارات 11.pdf">المهارات</a></td>
-                  
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- جدول الصف الحادي عشر تكنولوجي -->
-          <div id="grade11-T" class="hidden">
-                <h2>الرسالة الأكادمية لمواد - الصف الحادي عشر تكنولوجي</h2>
-            <table>
-              <thead>
-                <tr><th colspan="4">المادة</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a href="1/11-T/الرياضيات 11  علمي وتكنولوجي.pdf">الرياضيات</a></td>
-                  <td><a href="1/11-T/الفيزياء 11  علمي وتكنولوجي.pdf">الفيزياء</a></td>
-                  <td><a href="1/11-T/الكيمياء 11 تكنولوجي.pdf">الأحياء</a></td>
-                  <td><a href="1/11-T/علوم الحاسب 11 تكنولوجي.pdf">علوم الحاسب</a></td>
-                </tr>
-                <tr>
-                  <td><a href="1/11-T/اللغة العربية 11 تكنولوحي.pdf">اللغة العربية</a></td>
-                  <td><a href="1/11-T/اللغة الانجليزية 11.pdf">اللغة الانجليزية</a></td>
-                 <td><a href="1/11-T/الكيمياء 11 تكنولوجي.pdf">الكيمياء</a></td>
-                  <td><a href="1/11-T/التربية الاسلامية 11.pdf">التربية الإسلامية</a></td>
-                </tr>
-                <tr>
-                  <td colspan="2" ><a href="1/11-T/تكنولوجيا المعلومات 11 تكنولوجي.pdf">تكنولوجيا المعلومات</a></td>
-                  <td colspan="2"><a href="1/11-T/المهارات 11.pdf">المهارات</a></td>
-                  
-                </tr>
-              </tbody>
-            </table>
-          </div>
-    
-</div>
- 
-  <script>
-    function showTable(gradeId) {
-    // إخفاء جميع الجداول
-    document.getElementById('grade10').style.display = 'none';
-    document.getElementById('grade11-A').style.display = 'none';
-    document.getElementById('grade11-B').style.display = 'none';
-    document.getElementById('grade11-T').style.display = 'none';
+  <!-- Watermark -->
+  <div class="watermark" aria-hidden="true">
+    <svg width="400" height="400" viewBox="0 0 400 400">
+      <circle cx="200" cy="200" r="180" fill="#0E3A7A" opacity="0.3" />
+      <path d="M200 80 L240 160 L320 160 L260 210 L280 290 L200 240 L120 290 L140 210 L80 160 L160 160 Z" fill="white" />
+    </svg>
+  </div>
 
-    // إظهار الجدول المطلوب
-    document.getElementById(gradeId).style.display = 'block';
-  }
-  </script>
+  <div class="container">
+     <!-- Header -->
+     <div class="header">
+      <div class="logo-container">
+         <div class="logo">🏛️</div>
+         <div><img src="2.png"></div><div><img src="1.jpg"></div>
+         <div class="logo">🎓</div>
+        </div>     
+       <div class="title-section"> 
+           <h1 class="main-title" id="mainTitle">حقيبة الطالب 2025-2026</h1>
+       </div>
+   </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        
+      <div class="button-grid">
+        <!-- 1 -->
+        <a class="button-item"
+        href="message.html"
+        >        <!-- يمنع SharePoint من اعترا  <div><img src="2.png"></div>ض الرابط -->
+       <div class="button-circle btn-2">📧</div>
+       <div class="button-label">الرسالة الأكاديمية للاختبارات</div>
+     </a>
+     
+
+        <!-- 2 -->
+        <a class="button-item" href="exams.pdf" target="_blank" rel="noopener" aria-label="جداول الاختبارات">
+          <div class="button-circle btn-6">🎯</div>
+          <div class="button-label" id="btn6Label">جداول الاختبارات</div>
+        </a>
+        <!-- 3 -->
+        <a class="button-item" href="10.pdf" target="_blank" rel="noopener" aria-label="الجدول المدرسي للصف العاشر">
+          <div class="button-circle btn-3">📊</div>
+          <div class="button-label" id="btn3Label">الجدول المدرسي للصف العاشر</div>
+        </a>
+        <!-- 4 -->
+        <a class="button-item" href="11.pdf" target="_blank" rel="noopener" aria-label="الجدول المدرسي للصف الحادي عشر">
+          <div class="button-circle btn-4">📚</div>
+          <div class="button-label" id="btn4Label">الجدول المدرسي للصف الحادي عشر</div>
+        </a>
+        <!-- 5 -->
+        <a class="button-item" href="12.pdf" target="_blank" rel="noopener" aria-label="الجدول المدرسي للصف الثاني عشر">
+          <div class="button-circle btn-5">📖</div>
+          <div class="button-label" id="btn5Label">الجدول المدرسي للصف الثاني عشر</div>
+        </a>
+        <!-- 6 -->
+        <a class="button-item" href="time.pdf" target="_blank" rel="noopener" aria-label="توقيت الحصص">
+          <div class="button-circle btn-7">⏰</div>
+          <div class="button-label" id="btn7Label">توقيت الحصص</div>
+        </a>
+        <!-- 7 -->
+        <a class="button-item" href="takwim.pdf" target="_blank" rel="noopener" aria-label="التقويم السنوي">
+          <div class="button-circle btn-8">📅</div>
+          <div class="button-label" id="btn8Label">التقويم السنوي</div>
+        </a>
+        <!-- 8 -->
+        <a class="button-item" href="https://qeducation.edu.gov.qa/" target="_blank" rel="noopener" aria-label="بوابة قطر للتعليم">
+          <div class="button-circle btn-9">🌐</div>
+          <div class="button-label" id="btn9Label">بوابة قطر للتعليم</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p  class="footer-text"  align="center" style="color:#6A1B2E">مدير المدرسة :أ.جاسم المهندي</p>
+      
+    </div>
+  </div>
 </body>
 </html>
